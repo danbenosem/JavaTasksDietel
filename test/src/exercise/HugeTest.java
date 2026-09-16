@@ -23,7 +23,7 @@ public class HugeTest {
     }
 
 
-    @Test public void shouldAddTwoHugeIntegers() {
+    @Test public void testShouldAddTwoHugeIntegers() {
          HugeInteger first = new HugeInteger();
          HugeInteger second = new HugeInteger();
          first.parse("123");
@@ -33,7 +33,7 @@ public class HugeTest {
      }
 
     @Test
-    public void isEqualTo() {
+    public void testIsEqualTo() {
         HugeInteger first = new HugeInteger();
         HugeInteger second = new HugeInteger();
 
@@ -44,7 +44,7 @@ public class HugeTest {
     }
 
     @Test
-    public  void isNotEqualTo() {
+    public  void testIsNotEqualTo() {
         HugeInteger first = new HugeInteger();
         HugeInteger second = new HugeInteger();
 
@@ -55,7 +55,7 @@ public class HugeTest {
     }
 
     @Test
-   public void isGreaterThan() {
+   public void testIsGreaterThan() {
         HugeInteger first = new HugeInteger();
         HugeInteger second = new HugeInteger();
 
@@ -64,5 +64,18 @@ public class HugeTest {
 
         assertTrue(first.isGreaterThan(second));
     }
+
+    @Test
+    public void testThatItIsLessThanMethodWorks(){
+
+         HugeInteger first = new HugeInteger();
+         HugeInteger second = new HugeInteger();
+
+        first.parse("12345");
+        second.parse("12346");
+
+        assertTrue(first.isLessThan(second));
+    }
+
 
 }

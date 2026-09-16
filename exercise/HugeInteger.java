@@ -67,8 +67,8 @@ public class HugeInteger {
                  }
             }
 
-
             result.count=(max(object.count, this.count));
+
 
  return result;
 
@@ -115,6 +115,28 @@ public class HugeInteger {
          }
 
          return true;
+    }
+
+
+    public boolean isLessThan(HugeInteger object) {
+        int start= store.length - object.count;
+        if(this.count>object.count){
+            return false;
+        }
+
+        if (this.count < object.count) {
+            return true;
+        }
+
+
+        for(int index=start; index<store.length;index++){
+            if(store[index]>object.store[index]){
+                return false;
+
+            }
+        }
+
+        return true;
     }
 }
 
