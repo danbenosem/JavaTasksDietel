@@ -15,13 +15,13 @@ public class HugeInteger {
 
         int start = store.length - values.length();
 
-        for (int index = 0; index < values.length(); index++) {
+        for (int index = start; index < store.length; index++) {
 
-            char character = values.charAt(index);
+            char character = values.charAt(count++);
             int value = character - '0';
 
-            store[start + index] = value;
-            count++;
+            store[index] = value;
+
         }
 
 
@@ -74,10 +74,48 @@ public class HugeInteger {
 
     }
 
+    public boolean isEqualTo(HugeInteger object) {
+
+        if (this.count != object.count) {
+            return false;
+        }
+
+        for (int index = 0; index < store.length; index++) {
+
+            if (this.store[index] != object.store[index]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 
+    public boolean isNotEqualTo(HugeInteger object) {
+        return !isEqualTo(object);
+    }
 
 
+    public boolean isGreaterThan(HugeInteger object) {
+        int start= store.length - object.count;
+        if(this.count<object.count){
+            return false;
+        }
+
+        if (this.count > object.count) {
+            return true;
+        }
+
+
+         for(int index=start; index<store.length;index++){
+                if(store[index]<object.store[index]){
+                    return false;
+
+                }
+         }
+
+         return true;
+    }
 }
 
 
